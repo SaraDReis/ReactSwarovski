@@ -1,0 +1,65 @@
+
+/* HEADER */
+
+
+header {
+    justify-items: center;
+    height: 200px;
+    background: linear-gradient(96deg, rgba(0, 37, 55, 1) 0%, rgba(0, 71, 107, 1) 100%);
+}
+
+
+
+
+
+.container_cabeçalho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* background-color: aqua; */
+
+
+    max-width: 1440px;
+    height: 100%;
+    width: 100%;
+
+}
+
+.conteudo_cabeçalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* background-color: blueviolet; */
+
+    width: 25%;
+    height: 100%;
+
+    position: absolute;
+    left: 0
+}
+
+
+.seta {
+    width: 60px;
+    cursor: pointer;
+    color: white;
+
+    margin-right: 15px;
+}
+
+.seta_cadastro {
+    display: none;
+}
+
+header .logo {
+    height: 45px;
+    cursor: pointer;
+    justify-self: center;
+}
+
+.conteudo_cabeçalho img {
+    height: 200px;
+
+}

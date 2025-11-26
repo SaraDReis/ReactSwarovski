@@ -7,6 +7,8 @@ import banner from "../../assets/img/transferir (1) (1) (1).png"
 import { useEffect, useState } from "react";
 import { getJoias } from "../../services/JoiaService";
 import type { Joia } from "../../Types/Joia";
+import CardProduto from '../../components/CardProduto/CardProduto';
+import Header from '../../components/Header/Header';
 
 
 export default function Produtos() {
@@ -33,6 +35,8 @@ export default function Produtos() {
 
 
     return (
+<>
+<Header/>
 
         <main>
 
@@ -45,13 +49,21 @@ export default function Produtos() {
 
             <section className="cards">{
                 joias.map((j: Joia) => (
-                   
+                    <CardProduto
+                        key={j.id}
+                        nome={j.nome}
+                        descricao={j.descricao}
+                        preco={0}
+                        imagem={j.imagens[0] ?? ""}
+                        parcelamento={j.parcelamento} />
+
+
                 ))
             }
             </section>
         </main>
 
 
-
+</>
     )
 }

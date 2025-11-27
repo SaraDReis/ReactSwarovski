@@ -9,6 +9,7 @@ import { getJoias } from "../../services/JoiaService";
 import type { Joia } from "../../Types/Joia";
 import CardProduto from '../../components/CardProduto/CardProduto';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 
 export default function Produtos() {
@@ -35,35 +36,35 @@ export default function Produtos() {
 
 
     return (
-<>
-<Header/>
+        <>
+            <Header />
 
-        <main>
-
-
-            <img className="Ariana " src={banner} alt="" />
+            <main>
 
 
+                <img className="Ariana " src={banner} alt="" />
 
 
 
-            <section className="cards">{
-                joias.map((j: Joia) => (
-                    <CardProduto
-                        key={j.id}
-                        nome={j.nome}
-                        descricao={j.descricao}
-                        preco={0}
-                        imagem={j.imagens[0] ?? ""}
-                        parcelamento={j.parcelamento} />
 
 
-                ))
-            }
-            </section>
-        </main>
+                <section className="cards">{
+                    joias.map((j: Joia) => (
+                        <CardProduto
+                            key={j.id}
+                            nome={j.nome}
+                            descricao={j.descricao}
+                            preco={0}
+                            imagem={j.imagens[0] ?? ""}
+                            parcelamento={j.parcelamento} />
 
 
-</>
+                    ))
+                }
+                </section>
+            </main>
+
+            <Footer />
+        </>
     )
 }

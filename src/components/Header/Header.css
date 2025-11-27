@@ -15,7 +15,7 @@ header {
 .container_cabeçalho {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: spa;
 
     /* background-color: aqua; */
 
@@ -50,7 +50,7 @@ header {
 }
 
 .seta_cadastro {
-    display: none;
+   height: 30px;
 }
 
 header .logo {
@@ -63,3 +63,56 @@ header .logo {
     height: 200px;
 
 }
+
+
+@media screen and (max-width:1300px){
+  .Ariana {
+   display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+
+
+
+    /* HEADER MEDIA */
+
+    .titulo_cadastro {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .seta {
+        display: none;
+    }
+
+
+    .seta_cadastro {
+        display: block;
+        width: 45px;
+        cursor: pointer;
+        margin-right: 30px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    /* HEADER MEDIA */
+
+    header {
+        height: 130px;
+    }
+
+    header .logo {
+        height: 25px;
+    }
+
+    .conteudo_cabeçalho img {
+        height: 80px;
+    }
+
+    .seta_cadastro {
+        width: 20px;
+
+    }}

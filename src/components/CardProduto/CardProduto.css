@@ -1,3 +1,24 @@
+/*CARDS*/
+
+
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  /*background-color: aqua;*/
+  gap: 5%;
+  width: 100%;
+  justify-content: center;
+  padding: 0 20px;
+  box-shadow: #00000050;
+  
+
+
+
+}
+
+
+
 .card {
   width: 380px;
   height: 600px;
@@ -52,4 +73,97 @@
   right: 0;
   cursor: pointer;
 
+}
+
+
+@media screen and (max-width:1300px){
+   
+  .card {
+    width: 320px;
+    height: 420px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s;
+    position: relative;
+    margin-bottom: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+.card img {
+    width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+}
+
+
+@media screen and (max-width: 768px) 
+{
+  /* CARDS*/
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    width: 100%;
+    justify-content: center;
+    padding: 0 20px;
+
+  }
+
+  
+  .card {
+    width: 320px;
+    height: 420px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s;
+    position: relative;
+    margin-bottom: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+.card img {
+    width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+
+  .card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+
+  .card span {
+    font-weight: bold;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0 3rem;
+    display: flex;
+  }
+
+  .card small {
+    font-size: 0.8rem;
+    color: #777;
+    display: flex;
+  }
+
+  .coracao {
+    margin-right: 10px;
+    width: 20px;
+    height: 42px;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
 }

@@ -3,6 +3,7 @@ import './Produtos.css';
 
 import banner from "../../assets/img/transferir (1) (1) (1).png"
 
+import JoiaDefault from "../../assets/img/joia_default.png"
 
 import { useEffect, useState } from "react";
 import { getJoias } from "../../services/JoiaService";
@@ -42,7 +43,16 @@ export default function Produtos() {
             <main>
 
 
-                <img className="Ariana " src={banner} alt="" />
+                <section className="banner_pesquisa" >
+                    <img className="Ariana " src={banner} alt="" />
+                    <div className="pesquisa" >
+                        <svg className="lupa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M384 208a176 176 0 1 0 -352 0 176 176 0 1 0 352 0zM343.3 366C307 397.2 259.7 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208c0 51.7-18.8 99-50 135.3L507.3 484.7c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0L343.3 366z" /></svg>
+                        <input type="text" placeholder="Oque procura?" />
+                    </div>
+
+                </section>
+
+
 
 
 
@@ -54,13 +64,21 @@ export default function Produtos() {
                             key={j.id}
                             nome={j.nome}
                             descricao={j.descricao}
-                            preco={0}
+                            preco={j.preco ?? 0}
                             imagem={j.imagens[0] ?? ""}
                             parcelamento={j.parcelamento} />
 
 
                     ))
                 }
+                    {
+                        joias.length == 0 &&
+                        <div className='joia404' >
+                            <h3>O termo pesquisado <br />Não foi encontrado</h3>
+                            <img src={JoiaDefault} alt="foto termo não encontrado" />
+
+                        </div>
+                    }
                 </section>
             </main>
 

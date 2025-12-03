@@ -54,10 +54,16 @@ input[type="text"]{
 
 @media screen and (max-width: 1300px) {
 
-   
+    
+    /*PESQUISA */
+    .banner_pesquisa{
+      display: none;
+    }
+    
+    
+    .banner_pesquisa{
+        height: 200px;
+    }
+}
 
-/*PESQUISA */
-.banner_pesquisa{
-  height: 100px;
-}
-}
+   

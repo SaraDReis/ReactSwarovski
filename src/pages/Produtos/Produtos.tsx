@@ -14,6 +14,7 @@ import Footer from '../../components/Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 
 
+
 export default function Produtos() {
 
 
@@ -21,7 +22,10 @@ export default function Produtos() {
     const navigate = useNavigate();
 
     const handleSearch = () => {
+        if (!pesquisa.trim()) return;
+
         navigate(`/produtos/pesquisa?query=${encodeURIComponent(pesquisa)}`)
+        setPesquisa("")
     }
     const handleKeyDown = (evento: React.KeyboardEvent<HTMLInputElement>) => {
         if (evento.key === 'Enter') {
@@ -34,10 +38,29 @@ export default function Produtos() {
 
     const [joias, setJoias] = useState<Joia[]>([]);
 
+    const location useLocation();
+    
+
+    const parametrosPesquisados = new URLSearchParams(location.search);
+    const termo_pesquisado = parametrosPesquisados.get('query');
+
+
+
+
+
     const fetchJoias = async () => {
         try {
             const dados = await getJoias();
+
+
             console.log("Lista de Joias vindas da API: ", dados);
+            if (termo_pesquisado) {
+                const dados_filtrados = dados.filter(j =>
+                    j.nome.toLowerCase().includes(termo_pesquisado.toLowerCase()) ||
+                    j.descricao.toLowerCase().includes(termo_pesquisado.toLowerCase()) ||
+                    j.categoria.some(cat => cat.toLowerCase().includes(termo_pesquisado.toLowerCase()))
+                )
+            }
             setJoias(dados);
         }
         catch (error) {
@@ -46,7 +69,8 @@ export default function Produtos() {
     }
     useEffect(() => {
         fetchJoias();
-    }, [])
+        console.log("Termo pesquisado: " termo_pesquisado);
+    }, [termo_pesquisado])
 
 
 
@@ -66,7 +90,17 @@ export default function Produtos() {
                             type="text"
                             placeholder="Oque procura?"
                             value={pesquisa}
+                            onChange={p => setPesquisa(p.target.value)}
+                            onKeyDown={handleKeyDown}
                         />
+
+                        <span>
+                            {
+                                termo_pesquisado ? `Resultado para: ${termo_pesquisado} ` : "Nome da categoria"
+                            }
+
+                        </span>
+
                     </div>
 
                 </section>

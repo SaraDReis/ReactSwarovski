@@ -10,3 +10,12 @@ export const getJoias = async (): Promise<Joia[]> => {
         throw error;
     }
 }
+
+export const deleteJoia = async (idJoia: string): Promise<void> =>  {
+try {
+    await axios.delete(` http://localhost:3000/produtos/${idJoia}`)
+} catch (error) {
+    console.error("Erro ao deletar a joia: ", error);
+    throw error;
+}
+}

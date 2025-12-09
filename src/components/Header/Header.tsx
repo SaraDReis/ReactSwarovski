@@ -1,15 +1,14 @@
 import './Header.css'
-
 import cisne from '../../assets/img/cisnei-logo.png'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
     return (
 
 
         <header>
-
+        <Link to= {"/produtos/CadastroListagem"} title='Cadastrar produtos'>
             <section className="container_cabeçalho">
-
                 <svg className='menu_hamburguer' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path opacity=".4" fill="currentColor" d="" /><path fill="currentColor" d="M0 80c0-8.8 7.2-16 16-16l416 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L16 96C7.2 96 0 88.8 0 80zM0 256c0-8.8 7.2-16 16-16l288 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L16 272c-8.8 0-16-7.2-16-16zM192 432c0 8.8-7.2 16-16 16L16 448c-8.8 0-16-7.2-16-16s7.2-16 16-16l160 0c8.8 0 16 7.2 16 16z" /></svg>
                 <svg className="logo" viewBox="0 0 595 73" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -24,6 +23,8 @@ export default function Header() {
                 <img src={cisne} alt="cisne de cristal, simbolo da Swarovski" />
 
             </section>
+        
+        </Link>   
 
 
         </header>

@@ -1,13 +1,59 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
 import { getJoias } from '../../services/JoiaService';
 import type { Joia } from '../../Types/Joia';
 import './CadastroListagem.css'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import { formatosService } from '../../services/formatosService';
+import ModalCustomizado from '../../components/ModalCustomizado/ModalCustomizado';
+import { NumericFormat } from 'react-number-format';
+
 
 export default function CadastroListagem() {
 
     const [joia, setJoias] = useState<Joia[]>([]);
+    const [nomeJoia, setNomeJoia] = useState<string>("");
+    const [ categorias, setCategoria] = useState<string>("");
+    const [bgImageInputColor, setBgImageInputColor] = useState<string>(" #ffffff");
+    const [imagem, setimagem] = useState<File | undefined>(undefined);
+    const [preco, setPreco] = useState<number | undefined>(undefined);
+    const [parcelamento, setParcelamento] = useState<string>("");
+    const [descricao, setDescricao] = useState<string>("");
+    const [ClicouNaLixeira, setClicouNaLixeira] = useState<boolean>(false);
+    const [idParaDeletar, setIdParaDeletar] = useState<string>("");
+    const [aposConfirmacaoDeJoiaRemovido, setAposConfirmacaoDeJoiaRemovido] = useState<boolean>(false);
+    const [propsModalDeErroOuSucesso, setPropsModalDeErroOuSucesso] = useState<{ exibir: boolean; titulo: string; corpo: string; }>({ exibir: false, titulo: "", corpo: "" });
+
+
+    const abrirModalParaConfirmarDeletar = (id: string) => {
+        setClicouNaLixeira(true);
+        setIdParaDeletar(id);
+    }
+
+    const fecharModalConfirmacaoDelete = () => {
+        setClicouNaLixeira(false);
+    }
+
+    const exibirModalDeErroOuSucesso = (titulo: string, corpo: string) => {
+        setPropsModalDeErroOuSucesso({ exibir: true, titulo, corpo });
+
+    };
+
+    
+    const removerItemAposConfirmcao = async (id: string) => {
+        try {
+            await deleteJoia(id);
+            setAposConfirmacaoDeJoiaRemovido(true);
+            await fetchJoias();
+            fecharModalConfirmacaoDelete();
+        } catch (error) {
+            exibirModalDeErroOuSucesso("Erro", "Erro ao deletar o joia.");
+        }
+    }
+
+    const fecharModalDeErroOuSucesso = () => {
+        setPropsModalDeErroOuSucesso({ ...propsModalDeErroOuSucesso, exibir: false });
+    };
 
     const fetchJoias = async () => {
         try {
@@ -21,6 +67,14 @@ export default function CadastroListagem() {
     useEffect(() => {
         fetchJoias();
     }, [])
+
+    function handleSubmit(event: FormEvent<HTMLFormElement>): void {
+        throw new Error('Function not implemented.');
+    }
+
+    function carregarImagem(event: ChangeEvent<HTMLInputElement>): void {
+    
+    }
 
     return (
         <>
@@ -36,22 +90,45 @@ export default function CadastroListagem() {
                     <h2>Cadastro</h2>
 
                 </div>
-                <section className="container_cadastro">
+                <form onSubmit={handleSubmit} className="container_cadastro">
 
                     <div className="box_cadastro">
 
                         <div className="coluna_cadastro1">
                             <label htmlFor="Nome">Nome</label>
-                            <input type="text" name="" id="Nome" placeholder="Qual o nome dessa joia?" />
+                            <input
+                                className='linhas_1e2'
+                                type="text"
+                                id="joia"
+                                placeholder="Qual o nome dessa joia?"
+                                value={nomeJoia}
+                                onChange={e => setNomeJoia(e.target.value)}
+                            />
                             <div className="preço_img">
                                 <div className="cor">
                                     <label htmlFor="preço">Preço</label>
-                                    <input type="text" name="" id="preço" placeholder="Qual o preço?" />
+                                    <NumericFormat
+                                        id="preço"
+                                        placeholder="Insira o preço (R$)"
+                                        value={preco ?? ""}
+                                        thousandSeparator="."
+                                        decimalSeparator="."
+                                        prefix="R$"
+                                        decimalScale={2}
+                                        fixedDecimalScale
+                                        allowNegative={false}
+                                        onValueChange={(values) => {
+                                            setPreco(values.floatValue ?? undefined);
+                                        }}
+                                        inputMode="decimal"
+                                    />
                                 </div>
+
+
                                 <div className="img_input">
                                     <label htmlFor="img">
                                         <span>Imagem</span>
-                                        <div className="upload" >
+                                        <div style={{ backgroundColor: bgImageInputColor }} >
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 448 512">
                                                 <path fill="currentColor"
@@ -59,23 +136,44 @@ export default function CadastroListagem() {
                                             </svg>
                                         </div>
                                     </label>
-                                    <input type="file" name="" id="img" />
+                                    <input
+                                        type="file"
+                                        id="img"
+                                        alt="imagem_da_joia"
+                                        accept="image/*"
+                                        onChange={carregarImagem}
+                                    />
                                 </div>
 
 
                             </div>
-                            <label htmlFor="Parcela">Parcela</label>
-                            <input type="text" name="" id="Parcela" placeholder="Insira o valor da parcela." />
+                            <label htmlFor="Parcela"></label>
+                            <input
+                                type="text"
+                                id="Parcela"
+                                placeholder="Insira o valor da parcela."
+                                value={parcelamento}
+                                onChange={e => setParcelamento(e.target.value)}
+                            />
                         </div>
 
                         <div className="coluna_cadastro2">
                             <label htmlFor="Descrição">Descrição</label>
-                            <textarea name="" id="Descrição" placeholder="descreva o item que pretende cadastrar."></textarea>
+                            <textarea 
+                                id="Descrição"
+                                maxLength={200}
+                                placeholder="descreva o item que pretende cadastrar."
+                                value={descricao}
+                                onChange={d => setDescricao (d. target.value)}
+                            
+                            />
+                            
+
                         </div>
 
                     </div>
                     <input type="button" value="Cadastrar" />
-                </section>
+                </form>
 
                 <h2>Lista</h2>
 
@@ -85,12 +183,12 @@ export default function CadastroListagem() {
                         {
                             joia.map((j: Joia) => (
                                 <div className="card">
-                                    <h3>Colar Idylla</h3>
+                                    <h3>{j.nome}</h3>
                                     <div className="descrição">
                                         Descrição
                                     </div>
-                                    <p>Colar Idyllia, Combinação de lapidações, Flor, Multicor, Revestido em dourado</p>
-                                    <svg width="35" height="50" viewBox="0 0 42 50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    <p>{j.descricao || "Não informado"}</p>
+                                    <svg onClick={() => abrirModalParaConfirmarDeletar(j.id!)} xmlns="http://www.w3.org/2000/svg"
                                         xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <rect x="0.790283" y="0.93927" width="40.3053" height="48.6443" fill="url(#pattern0_162_54)" />
                                         <defs>
@@ -101,8 +199,8 @@ export default function CadastroListagem() {
                                                 xlinkHref="data:image/png;base64,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" />
                                         </defs>
                                     </svg>
-                                    <span>2000,00</span>
-                                    <small>3X de 420,00</small>
+                                    <span>{formatosService.PrecoBR(j.preco)}</span>
+                                    <small>{j.parcelamento}</small>
                                 </div>
 
                             ))
@@ -122,6 +220,36 @@ export default function CadastroListagem() {
 
             </main>
             <Footer />
+            <ModalCustomizado
+                mostrarModalQuando={ClicouNaLixeira}
+                aoCancelar={fecharModalConfirmacaoDelete}
+                titulo='Confirmar exclusão'
+                corpo="Tem certeza que deseja remover a joia?"
+                customizarBotoes={true}
+                textoBotaoConfirmacao='Excluir'
+                textoBotaoCancelamento='Cancelar'
+                aoConfirmar={() => removerItemAposConfirmcao(idParaDeletar)}
+                exibirConteudoCentralizado={true}
+            />
+
+            <ModalCustomizado
+                mostrarModalQuando={aposConfirmacaoDeJoiaRemovido}
+                aoCancelar={() => setAposConfirmacaoDeJoiaRemovido(false)}
+                titulo='Sucesso'
+                corpo="Joia removida!"
+            />
+
+            <ModalCustomizado
+                mostrarModalQuando={propsModalDeErroOuSucesso.exibir}
+                aoCancelar={fecharModalDeErroOuSucesso}
+                titulo={propsModalDeErroOuSucesso.titulo}
+                corpo={propsModalDeErroOuSucesso.corpo}
+                exibirConteudoCentralizado={true}
+            />
         </>
     )
 }
+function deleteJoia(id: string) {
+    throw new Error('Function not implemented.');
+}
+

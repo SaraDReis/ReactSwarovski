@@ -1,5 +1,5 @@
 export const formatosService = { 
-    PreçoBR: (preco: number): string => {
+    PrecoBR: (preco: number): string => {
         return ` ${preco.toLocaleString('pt-BR', {
             style: 'currency',
             currency: 'BRL'

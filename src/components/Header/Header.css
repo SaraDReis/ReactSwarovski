@@ -61,9 +61,7 @@ header .logo {
 
    { /* HEADER MEDIA */
 
-    img{
-
-    }
+    
 
     header {
         height: 130px;
@@ -74,7 +72,7 @@ header .logo {
     }
 
     .container_cabeçalho img {
-        height: 120px;
+        height: 100px;
     }
 
    .menu_hamburguer {
@@ -95,10 +93,10 @@ header .logo {
         height: 80px;
     }
 
-    img {
+    /* img {
 
         height: 150px;
-    }
+    } */
 
     .logo {
 

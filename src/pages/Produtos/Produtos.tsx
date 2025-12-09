@@ -11,7 +11,7 @@ import type { Joia } from "../../Types/Joia";
 import CardProduto from '../../components/CardProduto/CardProduto';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 
@@ -38,7 +38,7 @@ export default function Produtos() {
 
     const [joias, setJoias] = useState<Joia[]>([]);
 
-    const location useLocation();
+    const location = useLocation();
     
 
     const parametrosPesquisados = new URLSearchParams(location.search);
@@ -59,8 +59,9 @@ export default function Produtos() {
                     j.nome.toLowerCase().includes(termo_pesquisado.toLowerCase()) ||
                     j.descricao.toLowerCase().includes(termo_pesquisado.toLowerCase()) ||
                     j.categoria.some(cat => cat.toLowerCase().includes(termo_pesquisado.toLowerCase()))
-                )
-            }
+                );
+                setJoias(dados_filtrados);
+            }else
             setJoias(dados);
         }
         catch (error) {
@@ -69,7 +70,7 @@ export default function Produtos() {
     }
     useEffect(() => {
         fetchJoias();
-        console.log("Termo pesquisado: " termo_pesquisado);
+        console.log("Termo pesquisado: ", termo_pesquisado);
     }, [termo_pesquisado])
 
 

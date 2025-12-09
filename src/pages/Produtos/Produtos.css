@@ -44,7 +44,10 @@ input[type="text"]{
     padding-left: 45px;
 }
 
-
+span{
+    display: flex;
+    justify-content: center ;
+}
 
 
 /* MEDIA*/

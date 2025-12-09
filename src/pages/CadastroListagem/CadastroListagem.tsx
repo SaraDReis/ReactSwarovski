@@ -46,7 +46,7 @@ export default function CadastroListagem() {
                             <div className="preço_img">
                                 <div className="cor">
                                     <label htmlFor="preço">Preço</label>
-                                    <input type="text" name="" id="preço" placeholder="Qual o preço?" />
+                                    <input className='input_cadastro' type="text" name="" id="preço" placeholder="Qual o preço?" />
                                 </div>
                                 <div className="img_input">
                                     <label htmlFor="img">
@@ -77,14 +77,14 @@ export default function CadastroListagem() {
                     <input type="button" value="Cadastrar" />
                 </section>
 
-                <h2>Lista</h2>
+                <h2 className='titulo_cadastroListagem' >Lista</h2>
 
                 <section className="container_lista">
 
                     <section className="cards">
                         {
                             joia.map((j: Joia) => (
-                                <div className="card">
+                                <div className="card_cadastro">
                                     <h3>Colar Idylla</h3>
                                     <div className="descrição">
                                         Descrição

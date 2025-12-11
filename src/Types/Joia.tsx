@@ -3,7 +3,7 @@ id: string | undefined;
 nome: string;
 descricao:string;
 preco:number;
-categoria: string[];
+categorias: string[];
 imagens: string[];
 parcelamento: string;
 }

@@ -37,13 +37,13 @@ export default function Home() {
 
                     <nav className="menu_lateral">
                         <ul className="lista_vertical">
-                            <li><a href="#">NOVIDADES</a></li>
-                            <li><a href="#">BOUTIQUES</a></li>
-                            <li><a href="#">RELÓGIOS</a></li>
-                            <li><a href="#">ACESSÓRIOS</a></li>
-                            <li><a href="#">DECORAÇÃO</a></li>
-                            <li><a href="#">PRESENTES</a></li>
-                            <li><a href="#">OUTLET</a></li>
+                            <li><Link to="/produtos/pingente">PINGENTE</Link></li>
+                            <li><Link to="#">BOUTIQUES</Link></li>
+                            <li><Link to="#">RELÓGIOS</Link></li>
+                            <li><Link to="#">ACESSÓRIOS</Link></li>
+                            <li><Link to="/produtos/cadastroListagem">CADASTRO</Link></li>
+                            <li><Link to="#">PRESENTES</Link></li>
+                            <li><Link to="#">OUTLET</Link></li>
                         </ul>
                     </nav>
 

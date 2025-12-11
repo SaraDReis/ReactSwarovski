@@ -1,9 +1,10 @@
 /*CARDS*/
 
 
-.titulo_card_cadastro{
+.titulo_card_produto{
   font-size: 25px;
   margin: 5px;
+  color: var(--corFontEscura);
 }
 
 .cards_produto{

@@ -91,23 +91,6 @@
       "parcelamento": "ou 10x de R$200,00 sem juros"
     },
     {
-      "nome": "Anel Idyllia Flor G",
-      "categorias": [
-        "Idyllia",
-        "Anel",
-        "Flor",
-        "Multicor",
-        "Pavé"
-      ],
-      "descricao": "Anel Idyllia, Combinação de lapidações, Pavé, Flor, Multicor, Banhado a dourado.",
-      "imagens": [
-        "ANEL _IDYLLIA _FLOR_G.png"
-      ],
-      "id": "p007",
-      "preco": 2400,
-      "parcelamento": "ou 10x de R$200,00 sem juros"
-    },
-    {
       "nome": "Anel Idyllia Verde",
       "categorias": [
         "Idyllia",

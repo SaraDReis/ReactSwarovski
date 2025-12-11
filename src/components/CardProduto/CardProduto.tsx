@@ -16,7 +16,7 @@ export default function CardProduto({nome, descricao, preco, imagem, id, parcela
 
             <img src={(imagem.length > 0) ?`http://localhost:3000/static/${imagem}` : joia_default} alt="Píngente idyllia" />
             <p>{ (descricao.length > 0) ? descricao: "Descrição não informada" }</p>
-            <span className="preco"> {formatosService.PreçoBR (preco)} </span>
+            <span className="preco"> {formatosService.PrecoBR (preco)} </span>
             <small> { (parcelamento.length > 0) ? parcelamento: "Parcelamento não informado"} </small>
         </div>
 

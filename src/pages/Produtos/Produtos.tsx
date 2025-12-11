@@ -72,7 +72,7 @@ export default function Produtos() {
                 
                 setJoias(dados_filtrados);
             } else {
-                console.warn("Nenhuma categoria ou termo de busca definido.");
+                console.warn("Nenhuma categorias ou termo de busca definido.");
                 setJoias(dados);
             }
         }
@@ -110,8 +110,8 @@ export default function Produtos() {
 
                         {/* <span>
                             {
-                                categoria
-                                    ? categoria.charAt(0).toUpperCase() + categoria.slice(1).toLowerCase()
+                                categorias
+                                    ? categorias.charAt(0).toUpperCase() + categorias.slice(1).toLowerCase()
                                     : termo_pesquisado
                                         ? `Resultado para:" ${termo_pesquisado}" `
                                         : "Nenhum filtro aplicado"

@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "email": "jacquin@bolos.com",
+      "email": "swarovski@joias.com",
       "senha": "1234"
     }
   ],
@@ -9,12 +9,12 @@
     {
       "nome": "Pingente Idyllia Borboleta",
       "categorias": [
-        "Idyllia",
-        "Pingente",
-        "Pregadeira",
-        "Borboleta",
-        "Multicor",
-        "Pavé"
+        "idyllia",
+        "pingente",
+        "pregadeira",
+        "borboleta",
+        "multicor",
+        "pavé"
       ],
       "descricao": "Pingente e pregadeira Idyllia, Combinação de lapidações, Pavé, Borboleta, Multicores, Acabamento de combinação de metais.",
       "imagens": [

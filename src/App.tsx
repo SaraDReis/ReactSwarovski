@@ -1,5 +1,6 @@
-import {BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Produtos from "./pages/Produtos/Produtos"
+import Home from "./pages/Home/Home"
 import CadastroListagem from "./pages/CadastroListagem/CadastroListagem"
 
 function App() {
@@ -13,8 +14,8 @@ function App() {
       <Route path="/produtos/pesquisa" element= {<Produtos /> }/>
     </Routes>
     </BrowserRouter>
-      
-    
+
+
   )
 }
 

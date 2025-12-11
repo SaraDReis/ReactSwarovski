@@ -241,7 +241,7 @@ export default function CadastroListagem() {
                     <input type="button" value="Cadastrar" />
                 </form>
 
-                <h2>Lista</h2>
+                <h2 className='titulo_cadastroListagem' >Lista</h2>
 
                 <section className="container_lista">
 

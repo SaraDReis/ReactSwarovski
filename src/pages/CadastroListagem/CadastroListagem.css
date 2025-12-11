@@ -157,19 +157,19 @@ label {
     margin-top: 25px;
 }
 
-input[type="button"] {
-
-    height: 60px;
-    width: 90%;
-    max-width: 1400px;
-
-    background-color: #002537;
+.botaoSubmit {
+    padding: 10px 100px;
+    margin-top: 50px;
     border-radius: 10px;
-    border: solid 0.5px;
-    margin-bottom: 90px;
 
+    background-color: var(--corPrincipal);
+    font-size: 24px;
+    font-family: var(--fontCpmplementar);
+    box-shadow: 0 4px 4px 0 #00000025;
     cursor: pointer;
+
 }
+
 
 
 

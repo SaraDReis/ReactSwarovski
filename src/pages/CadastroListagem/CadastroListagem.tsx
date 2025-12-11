@@ -1,5 +1,5 @@
-import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
-import { getJoias } from '../../services/JoiaService';
+import { useEffect, useState, type ChangeEvent } from 'react'
+import { deleteJoia, enviarFotoParaApi, getJoias, postJoia } from '../../services/JoiaService';
 import type { Joia } from '../../Types/Joia';
 import './CadastroListagem.css'
 import Header from '../../components/Header/Header';
@@ -13,9 +13,9 @@ export default function CadastroListagem() {
 
     const [joia, setJoias] = useState<Joia[]>([]);
     const [nomeJoia, setNomeJoia] = useState<string>("");
-    const [ categorias, setCategoria] = useState<string>("");
+    const [categorias, setCategorias] = useState<string>("");
     const [bgImageInputColor, setBgImageInputColor] = useState<string>(" #ffffff");
-    const [imagem, setimagem] = useState<File | undefined>(undefined);
+    const [imagem, setImagem] = useState<File | undefined>(undefined);
     const [preco, setPreco] = useState<number | undefined>(undefined);
     const [parcelamento, setParcelamento] = useState<string>("");
     const [descricao, setDescricao] = useState<string>("");
@@ -39,7 +39,7 @@ export default function CadastroListagem() {
 
     };
 
-    
+
     const removerItemAposConfirmcao = async (id: string) => {
         try {
             await deleteJoia(id);
@@ -55,6 +55,70 @@ export default function CadastroListagem() {
         setPropsModalDeErroOuSucesso({ ...propsModalDeErroOuSucesso, exibir: false });
     };
 
+    //Funções para lidar com os inputs
+    const carregarImagem = (img: ChangeEvent<HTMLInputElement>) => {
+        const file = img.target.files?.[0];
+        if (file?.type.includes("image")) {
+            setImagem(file);
+            setBgImageInputColor(" #5cb85c")
+        }
+        else {
+            setImagem(undefined);
+            setBgImageInputColor(" #ff2c2c");
+        }
+    }
+
+    const limparDados = () => {
+        setNomeJoia("");
+        setCategorias("");
+        setImagem(undefined);
+        setPreco(undefined);
+        setParcelamento("");
+        setDescricao("");
+        setBgImageInputColor(" #ffffff")
+
+    }
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (!nomeJoia || !descricao || !preco) {
+            exibirModalDeErroOuSucesso("Campos obrigatorios", "Preencha o nome, descricao e preço da joia");
+            return;
+        }
+
+        let uploadeFileName: string | undefined;
+
+        if (imagem) {
+            uploadeFileName = await enviarFotoParaApi(imagem);
+            if (!uploadeFileName) {
+                exibirModalDeErroOuSucesso("Erro", "cadastro cancelado por falha no upload da imagem.");
+                return;
+            }
+        }
+
+        const novaJoia: Joia = {
+            id: undefined,
+            nome: nomeJoia,
+            descricao: descricao,
+            preco: preco,
+            parcelamento: parcelamento,
+            categoria: categorias.toLowerCase().split(",").map(c => c.trim()),
+            imagens: uploadeFileName ? [uploadeFileName] : []
+
+        };
+
+        try {
+            await postJoia(novaJoia);
+            exibirModalDeErroOuSucesso("Sucesso", "Nova Joia cadastrada com sucesso!")
+            limparDados();
+            fetchJoias();
+        } catch {
+            exibirModalDeErroOuSucesso("Erro", "Erro ao cadastrar nova.")
+        }
+    }
+
+
     const fetchJoias = async () => {
         try {
             const dados = await getJoias();
@@ -68,13 +132,6 @@ export default function CadastroListagem() {
         fetchJoias();
     }, [])
 
-    function handleSubmit(event: FormEvent<HTMLFormElement>): void {
-        throw new Error('Function not implemented.');
-    }
-
-    function carregarImagem(event: ChangeEvent<HTMLInputElement>): void {
-    
-    }
 
     return (
         <>
@@ -82,11 +139,7 @@ export default function CadastroListagem() {
             <main>
                 <div className="cadastro" >
 
-                    <svg className="seta_cadastro" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512">
-                        <path fill="currentColor"
-                            d="M2.3 250.3c-3.1 3.1-3.1 8.2 0 11.3l176 176c3.1 3.1 8.2 3.1 11.3 0s3.1-8.2 0-11.3L27.3 264 504 264c4.4 0 8-3.6 8-8s-3.6-8-8-8L27.3 248 189.7 85.7c3.1-3.1 3.1-8.2 0-11.3s-8.2-3.1-11.3 0l-176 176z" />
-                    </svg>
+                   
                     <h2>Cadastro</h2>
 
                 </div>
@@ -104,6 +157,19 @@ export default function CadastroListagem() {
                                 value={nomeJoia}
                                 onChange={e => setNomeJoia(e.target.value)}
                             />
+                            <div>
+                                <div className="categoria" />
+                                <label htmlFor="cat">Categorias</label>
+                                <input
+                                    className='linha_1e2'
+                                    type="text"
+                                    id="cat"
+                                    placeholder="Idillya, Colar, Anel..."
+                                    value={categorias}
+                                    onChange={c => setCategorias(c.target.value)}
+                                />
+
+                            </div>
                             <div className="preço_img">
                                 <div className="cor">
                                     <label htmlFor="preço">Preço</label>
@@ -112,7 +178,7 @@ export default function CadastroListagem() {
                                         placeholder="Insira o preço (R$)"
                                         value={preco ?? ""}
                                         thousandSeparator="."
-                                        decimalSeparator="."
+                                        decimalSeparator=","
                                         prefix="R$"
                                         decimalScale={2}
                                         fixedDecimalScale
@@ -153,21 +219,21 @@ export default function CadastroListagem() {
                                 id="Parcela"
                                 placeholder="Insira o valor da parcela."
                                 value={parcelamento}
-                                onChange={e => setParcelamento(e.target.value)}
+                                onChange={p => setParcelamento(p.target.value)}
                             />
                         </div>
 
                         <div className="coluna_cadastro2">
                             <label htmlFor="Descrição">Descrição</label>
-                            <textarea 
+                            <textarea
                                 id="Descrição"
                                 maxLength={200}
                                 placeholder="descreva o item que pretende cadastrar."
                                 value={descricao}
-                                onChange={d => setDescricao (d. target.value)}
-                            
+                                onChange={d => setDescricao(d.target.value)}
+
                             />
-                            
+
 
                         </div>
 
@@ -248,8 +314,7 @@ export default function CadastroListagem() {
             />
         </>
     )
-}
-function deleteJoia(id: string) {
-    throw new Error('Function not implemented.');
-}
 
+
+
+}

@@ -7,22 +7,6 @@
   ],
   "produtos": [
     {
-      "nome": "Pingente Idyllia 3 Flores",
-      "categorias": [
-        "Idyllia",
-        "Pingente",
-        "Flor",
-        "Multicor"
-      ],
-      "descricao": "Pingente Idyllia, combinação de lapidações, flor, multicor, revestido em dourado.",
-      "imagens": [
-        "PINGENTE IDYLLIA 3 FLORES.png"
-      ],
-      "id": "p001",
-      "preco": 2000.00,
-      "parcelamento": "ou 10x de R$200,00 sem juros"
-    },
-    {
       "nome": "Pingente Idyllia Borboleta",
       "categorias": [
         "Idyllia",
@@ -37,7 +21,7 @@
         "PINGENTE IDYLLIA BORBOLETA.png"
       ],
       "id": "p002",
-      "preco": 2000.00,
+      "preco": 2000,
       "parcelamento": "ou 10x de R$200,00 sem juros"
     },
     {
@@ -53,7 +37,7 @@
         "ANEL IDYLLIA-AZUL.png"
       ],
       "id": "p003",
-      "preco": 1000.00,
+      "preco": 1000,
       "parcelamento": "ou 10x de R$200,00 sem juros"
     },
     {
@@ -69,7 +53,7 @@
         "COLAR_IDYLLIA_1.png"
       ],
       "id": "p004",
-      "preco": 4000.00,
+      "preco": 4000,
       "parcelamento": "ou 10x de R$200,00 sem juros"
     },
     {
@@ -87,7 +71,7 @@
         "PINGENTE_IDYLLIA_FLORIDO.png"
       ],
       "id": "p005",
-      "preco": 3700.00,
+      "preco": 3700,
       "parcelamento": "ou 10x de R$200,00 sem juros"
     },
     {
@@ -103,7 +87,7 @@
         "BACELETE_IDYLLIA.png"
       ],
       "id": "p006",
-      "preco": 1790.00,
+      "preco": 1790,
       "parcelamento": "ou 10x de R$200,00 sem juros"
     },
     {
@@ -120,7 +104,7 @@
         "ANEL _IDYLLIA _FLOR_G.png"
       ],
       "id": "p007",
-      "preco": 2400.00,
+      "preco": 2400,
       "parcelamento": "ou 10x de R$200,00 sem juros"
     },
     {
@@ -136,24 +120,7 @@
         "ANEL_IDYLLIA_VERDE.png"
       ],
       "id": "p008",
-      "preco": 1980.00,
-      "parcelamento": "ou 10x de R$200,00 sem juros"
-    },
-    {
-      "nome": "Colar Idyllia Pavé (Modelo 2)",
-      "categorias": [
-        "Idyllia",
-        "Colar",
-        "Flor",
-        "Multicor",
-        "Pavé"
-      ],
-      "descricao": "Colar Idyllia, Combinação de lapidações, Pavé, Flor, Multicor, Revestido em dourado.",
-      "imagens": [
-        "COLAR _IDYLLIA _2.png"
-      ],
-      "id": "p009",
-      "preco": 6500.00,
+      "preco": 1980,
       "parcelamento": "ou 10x de R$200,00 sem juros"
     },
     {
@@ -169,9 +136,8 @@
         "ANEL_IDYLLIA.png"
       ],
       "id": "p010",
-      "preco": 2000.00,
+      "preco": 2000,
       "parcelamento": "ou 10x de R$200,00 sem juros"
-      
     }
   ]
 }

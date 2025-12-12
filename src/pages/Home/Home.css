@@ -236,7 +236,7 @@ footer .logo {
     height: 40px;
 }
 
-p {
+.p_final{
     font-family: "Julius Sans One", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -260,7 +260,7 @@ p {
 
 } */
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .menu_lateral {
         width: 180px;
     }
@@ -275,9 +275,11 @@ p {
         min-width: auto;
     }
 
-    .logo {
-        right: 20px;
-        transform: none;
-        bottom: 20px;
+    .logo_rodape_mobile {
+        display: none;
     }
-}
+
+    .main_home {
+        justify-content: center;
+    }
+    }

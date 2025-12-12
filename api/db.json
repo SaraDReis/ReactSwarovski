@@ -7,24 +7,6 @@
   ],
   "produtos": [
     {
-      "nome": "Pingente Idyllia Borboleta",
-      "categorias": [
-        "idyllia",
-        "pingente",
-        "pregadeira",
-        "borboleta",
-        "multicor",
-        "pavé"
-      ],
-      "descricao": "Pingente e pregadeira Idyllia, Combinação de lapidações, Pavé, Borboleta, Multicores, Acabamento de combinação de metais.",
-      "imagens": [
-        "PINGENTE IDYLLIA BORBOLETA.png"
-      ],
-      "id": "p002",
-      "preco": 2000,
-      "parcelamento": "ou 10x de R$200,00 sem juros"
-    },
-    {
       "nome": "Anel Idyllia Azul",
       "categorias": [
         "Idyllia",
@@ -104,22 +86,6 @@
       ],
       "id": "p008",
       "preco": 1980,
-      "parcelamento": "ou 10x de R$200,00 sem juros"
-    },
-    {
-      "nome": "Anel Idyllia Clássico",
-      "categorias": [
-        "Idyllia",
-        "Anel",
-        "Flor",
-        "Multicor"
-      ],
-      "descricao": "Anel Idyllia, Combinação de lapidações, Flor, Multicor, Banhado a dourado.",
-      "imagens": [
-        "ANEL_IDYLLIA.png"
-      ],
-      "id": "p010",
-      "preco": 2000,
       "parcelamento": "ou 10x de R$200,00 sem juros"
     }
   ]

@@ -1,11 +1,11 @@
 export interface ModalCustomizadoProps {
-    mostrarModalQuando: boolean;
+    mostrarModalQuando: Boolean;
     aoCancelar: () => void;
-    titulo: string;
+    titulo: String;
     corpo: string | React.ReactNode;
     textoBotaoConfirmacao?: string;
     textoBotaoCancelamento?: string;
     aoConfirmar?: () => void;
-    customizarBotoes?: boolean;
-    exibirConteudoCentralizado?: boolean; 
+    customizarBotoes?: Boolean;
+    exibirConteudoCentralizado?: Boolean; 
 }

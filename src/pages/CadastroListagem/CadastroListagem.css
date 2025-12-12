@@ -150,7 +150,7 @@ label {
     margin-top: 25px;
 }
 
-input[type="button"] {
+.botaoSubmit {
 
     height: 60px;
     width: 90%;
@@ -205,7 +205,7 @@ h3 {
 
 .card_joia {
     width: 300px;
-    height: 300px;
+    height: 350px;
     background-color: #ffffff;
     border-radius: 30px;
     text-align: center;
@@ -299,7 +299,7 @@ small{
 
     /* HEADER MEDIA */
 
-    img {}
+
 
     header {
         height: 130px;

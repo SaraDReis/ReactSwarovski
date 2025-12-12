@@ -23,6 +23,11 @@ h2 {
     flex-direction: column;
 }
 
+.svg{
+    height: 60px;
+    background-color: black;
+}
+
 
 
 .box_cadastro {
@@ -47,7 +52,9 @@ h2 {
     flex-direction: column;
 }
 
-
+.svg_file {
+    color: #000;
+}
 .coluna_cadastro2 {
     /* background-color: blueviolet; */
     width: 45%;
@@ -81,6 +88,12 @@ h2 {
     /* background-color: blueviolet; */
 }
 
+svg_file
+
+.container_imginput{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px
+}
 
 
 .upload {

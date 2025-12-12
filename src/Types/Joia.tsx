@@ -5,5 +5,5 @@ descricao:string;
 preco:number;
 categorias: string[];
 imagens: string[];
-parcelamento: number;
+parcelamento: string | undefined;
 }

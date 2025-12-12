@@ -60,7 +60,7 @@ export default function CadastroListagem() {
         const file = img.target.files?.[0];
         if (file?. type.includes ("image")) {
             setImagem(file);
-            seiBgImageInputColor(" #5cb85c"):
+            seiBgImageInputColor(" #5cb85c")
         }
         else{
             setImagem(undefined);
@@ -101,17 +101,21 @@ export default function CadastroListagem() {
 
         const novoJoia:Joia = {
             id: undefined,
-            nome:nomeJoia,
+            nome: nomeJoia,
             descricao: descricao,
-            preco:preco,
-            parcelamento: parcelamento ?? ,
-           imagens: uploadedFileName ? [uploadedFileName] : []
+            preco: preco,
+            parcelamento: parcelamento,
+            imagens: uploadedFileName ? [uploadedFileName] : [],
+            categorias: []
         };
 
         try {
             await postJoia(novoJoia);
+            exibirModalErroOuSucesso("Sucesso", "Nova joia de cadastro com sucesso!");
+            LimparDados();
+            fetchJoias();
         } catch (error) {
-            
+            exibirModalErroOuSucesso("Erro" , "Erro ao cadastrar nova joia.")
         }
     }
 
@@ -172,8 +176,8 @@ export default function CadastroListagem() {
                                 <div className="img_input">
                                     <label htmlFor="img">
                                         <span>Imagem</span>
-                                        <div style={{ backgroundColor: bgImageInputColor }}>
-                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                        <div className='container_imginput' style={{ backgroundColor: bgImageInputColor }}>
+                                            <svg className='svg_file' xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 448 512">
                                                 <path fill="currentColor"
                                                     d="M232 344l0-316.7 106.3 106.3c3.1 3.1 8.2 3.1 11.3 0s3.1-8.2 0-11.3l-120-120c-3.1-3.1-8.2-3.1-11.3 0l-120 120c-3.1 3.1-3.1 8.2 0 11.3s8.2 3.1 11.3 0L216 27.3 216 344c0 4.4 3.6 8 8 8s8-3.6 8-8zm48-24l104 0c26.5 0 48 21.5 48 48l0 48c0 26.5-21.5 48-48 48L64 464c-26.5 0-48-21.5-48-48l0-48c0-26.5 21.5-48 48-48l104 0 0-16-104 0c-35.3 0-64 28.7-64 64l0 48c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-48c0-35.3-28.7-64-64-64l-104 0 0 16zm88 72a16 16 0 1 1 -32 0 16 16 0 1 1 32 0zm-16-32a32 32 0 1 0 0 64 32 32 0 1 0 0-64z" />

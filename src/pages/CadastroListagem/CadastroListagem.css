@@ -23,10 +23,19 @@ h2 {
     flex-direction: column;
 }
 
-.svg{
-    height: 60px;
-    background-color: black;
+.container_cabeçalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: aqua; */
+    max-width: 1440px;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
 }
+
+
+
 
 
 
@@ -54,6 +63,7 @@ h2 {
 
 .svg_file {
     color: #000;
+    height: 50px;
 }
 .coluna_cadastro2 {
     /* background-color: blueviolet; */
@@ -88,11 +98,19 @@ h2 {
     /* background-color: blueviolet; */
 }
 
-svg_file
+/* svg_file */
 
 .container_imginput{
     background-color: rgb(255, 255, 255);
-    border-radius: 10px
+     width: 100px;
+    border-radius: 10px;
+    display: flex;
+    padding: 5px 12px;
+    justify-content: center;
+    margin: 1px 10px;
+    
+    
+
 }
 
 
@@ -118,8 +136,8 @@ input[type="file"] {
 }
 
 
-
-input[type="text"] {
+/*mantem*/
+[type="text"] {
     border-radius: 10px;
     height: 60px;
 }
@@ -135,8 +153,7 @@ textarea {
     font-size: 20px;
     background-color: #F5F5F5;
 }
-
-input[type="text"],
+.input,
 textarea {
     padding: 20px 15px;
     border: solid 0.5px;
@@ -175,6 +192,8 @@ label {
     margin-bottom: 90px;
 
     cursor: pointer;
+    color: #ffffff;
+    
 }
 
 
@@ -218,7 +237,7 @@ h3 {
 
 .card_joia {
     width: 300px;
-    height: 350px;
+    height: px;
     background-color: #ffffff;
     border-radius: 30px;
     text-align: center;
@@ -269,20 +288,7 @@ small{
 
 @media screen and (max-width: 1000px) {
 
-    /* HEADER MEDIA */
-
-    .titulo_cadastro {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-
-
-
-
-
-
+  
 
     /* CADASTRO MEDIA */
 
@@ -290,7 +296,7 @@ small{
         font-size: 20px;
     }
 
-    input[type="text"]::placeholder,
+     .input::placeholder,
     textarea::placeholder {
         font-size: 15px;
     }
@@ -310,30 +316,6 @@ small{
 
 @media screen and (max-width:770px) {
 
-    /* HEADER MEDIA */
-
-
-
-    header {
-        height: 130px;
-    }
-
-    header .logo {
-        height: 30px;
-    }
-
-    .container_cabeçalho img {
-        height: 120px;
-    }
-
-    .menu_hamburguer {
-        width: 40px;
-
-    }
-
-
-
-
     /* CADASTRO MEDIAS */
     .seta_cadastro {
         display: block;
@@ -346,6 +328,8 @@ small{
         height: 120px;
 
     }
+
+    
 
     main {
         justify-items: center;
@@ -363,6 +347,10 @@ small{
         display: flex;
         justify-content: center;
         height: auto;
+    }
+
+    .botaoSubmit{
+        margin-top: 2rem;
     }
 
     .coluna_cadastro1,
@@ -416,35 +404,6 @@ small{
 
 
 
-@media screen and (max-width:500px) {
-    
-    
-        /* HEADER MEDIA */
-    
-        header .logo {
-            height: 20px;
-        }
-    
-        .container_cabeçalho img {
-            height: 80px;
-        }
-    
-        img {
-    
-            height: 150px;
-        }
-    
-        .logo {
-    
-            height: 100px;
-        }
-    
-        .container_lista {
-            border-radius: 30px;
-            width: 90%;
-            padding: 0 15px;
-            margin-bottom: 60px;
-        }
 
-
-}
+    
+    

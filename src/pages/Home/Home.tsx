@@ -86,7 +86,7 @@ export default function Home() {
 
             </main>
 
-            <footer>
+            <footer className='footer_home'>
                 <div>
                     <svg className="logo logo_rodape_mobile" viewBox="0 0 595 73" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path

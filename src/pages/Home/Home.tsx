@@ -37,10 +37,10 @@ export default function Home() {
 
                     <nav className="menu_lateral">
                         <ul className="lista_vertical">
-                            <li><Link to="/produtos/pesquisa">PRODUTOS</Link></li>
+                            <li><Link to="/produtos">PRODUTOS</Link></li>
                             <li><Link to="/produtos/cadastroListagem">CADASTRO</Link></li>
                             <li><Link to="/produtos/pingente">PINGENTE</Link></li>
-                            <li><Link to="/produtos/pesquisa">RELÓGIOS</Link></li>
+                            <li><Link to="/produtos/relogios">RELÓGIOS</Link></li>
                             <li><Link to="/produtos/pesquisa">ACESSÓRIOS</Link></li>
                             <li><Link to="/produtos/pesquisa">PRESENTES</Link></li>
                         </ul>

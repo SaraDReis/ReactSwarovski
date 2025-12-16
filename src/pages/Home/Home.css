@@ -69,11 +69,11 @@ body {
     font-size: 0.95em;
     letter-spacing: 1px;
     color: #FFFFFF;
-    transition: background-color 0.2s;
+    transition:0.2s;
 }
 
 .menu_lateral li a:hover {
-    background-color: #f5f5f5;
+    background-color: #485a6d;
 }
 
 .lista_vertical {

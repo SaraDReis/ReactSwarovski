@@ -14,7 +14,7 @@ export default function Home() {
     useEffect(() => {
         // Só roda no cliente
         const check = () =>
-            setIsMobile(window.matchMedia("(max-width: 767px)").matches);
+            setIsMobile(window.matchMedia("(max-width: 768px)").matches);
 
         check(); // Executa ao montar
 

@@ -73,8 +73,9 @@
   font-weight: bold;
   font-size: 1rem;
   display: block;
-  margin-bottom: 0 3rem;
   display: flex;
+  color: black;
+  margin: 1rem 0;
 }
 
 .card_produto small {
@@ -82,19 +83,6 @@
   color: #777;
   display: flex;
 }
-
-.coracao {
-  margin: 10px;
-  width: 20px;
-  height: 42px;
-  border-radius: 10px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  cursor: pointer;
-
-}
-
 
 @media screen and (max-width:1300px){
    
@@ -135,19 +123,7 @@
   }
 
   
-  /* .card {
-    width: 320px;
-    height: 420px;
-    background: #fff;
-    border-radius: 12px;
-    padding: 1rem;
-    text-align: center;
-    transition: transform 0.2s;
-    position: relative;
-    margin-bottom: 50px;
-    justify-content: space-between;
-    align-items: center;
-} */
+  
 .card_produto img {
     width: 100%;
     max-height: 160px;
@@ -176,14 +152,5 @@
     display: flex;
   }
 
-  .coracao {
-    margin-right: 10px;
-    width: 20px;
-    height: 42px;
-    border-radius: 10px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-  }
+  
 }

@@ -22,7 +22,7 @@ export default function Header() {
 
 
 
-                <Link to={"/produtos"} title='home' >
+                <Link to={"/"} title='home' >
 
                     <img src={cisne} alt="cisne de cristal, simbolo da Swarovski" />
                 </Link>

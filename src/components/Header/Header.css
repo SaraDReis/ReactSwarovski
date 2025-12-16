@@ -22,6 +22,7 @@ header {
     max-width: 1440px;
     height: 100%;
     width: 100%;
+    margin: 0 auto;
 
 }
 
@@ -40,7 +41,7 @@ header {
 .seta_cadastro {
     width: 40px;
     cursor: pointer;
- 
+
 
     margin-right: 15px;
 }
@@ -55,13 +56,14 @@ header .logo {
     height: 160px;
 
 }
- 
 
-@media screen and (max-width:770px) 
 
-   { /* HEADER MEDIA */
 
-    
+
+@media screen and (max-width:770px) {
+    /* HEADER MEDIA */
+
+
 
     header {
         height: 130px;
@@ -75,15 +77,14 @@ header .logo {
         height: 100px;
     }
 
-   .menu_hamburguer {
+    .menu_hamburguer {
         width: 40px;
 
     }
 }
 
-@media screen and (max-width:500px) 
-
-    {/* HEADER MEDIA */
+@media screen and (max-width:500px) {
+    /* HEADER MEDIA */
 
     header .logo {
         height: 20px;
@@ -101,4 +102,5 @@ header .logo {
     .logo {
 
         height: 100px;
-    }}
+    }
+}

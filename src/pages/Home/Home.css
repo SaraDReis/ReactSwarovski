@@ -221,7 +221,7 @@ body {
 }
 
 /* RODAPE */
-footer {
+.footer_home {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -232,7 +232,7 @@ footer {
     padding: 0 1rem 0 1rem;
 }
 
-footer .logo {
+.footer_home.logo {
     height: 40px;
 }
 

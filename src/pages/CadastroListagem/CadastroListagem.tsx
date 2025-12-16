@@ -56,13 +56,13 @@ export default function CadastroListagem() {
 
     }
 
-    const carregarImagem =(img: ChangeEvent<HTMLInputElement>) => {
+    const carregarImagem = (img: ChangeEvent<HTMLInputElement>) => {
         const file = img.target.files?.[0];
-        if (file?. type.includes ("image")) {
+        if (file?.type.includes("image")) {
             setImagem(file);
             seiBgImageInputColor(" #5cb85c")
         }
-        else{
+        else {
             setImagem(undefined);
             seiBgImageInputColor(" #ff2c2c")
         }
@@ -73,7 +73,7 @@ export default function CadastroListagem() {
         setDescricao("");
         setImagem(undefined);
         setPreco(undefined)
-        seiBgImageInputColor( " #ffffff")
+        seiBgImageInputColor(" #ffffff")
         setParcelamento("")
 
 
@@ -84,7 +84,7 @@ export default function CadastroListagem() {
 
 
         if (!nomeJoia || !descricao || !preco) {
-            exibirModalErroOuSucesso("Campos obrigatorios", "Prencha o nome, categorias e valor da joia");
+            exibirModalErroOuSucesso("Campos obrigatorios", "Prencha o nome, preço, parcelamento e descrição da joia");
             return;
         }
 
@@ -92,14 +92,14 @@ export default function CadastroListagem() {
 
         if (imagem) {
             uploadedFileName = await enviarFotoParaApi(imagem);
-            if (!uploadedFileName)  {
+            if (!uploadedFileName) {
                 exibirModalErroOuSucesso("Erro", "cadastro cancelamento por falha no upload da imagem.");
                 return;
             }
         }
 
 
-        const novoJoia:Joia = {
+        const novoJoia: Joia = {
             id: undefined,
             nome: nomeJoia,
             descricao: descricao,
@@ -115,7 +115,7 @@ export default function CadastroListagem() {
             LimparDados();
             fetchJoias();
         } catch (error) {
-            exibirModalErroOuSucesso("Erro" , "Erro ao cadastrar nova joia.")
+            exibirModalErroOuSucesso("Erro", "Erro ao cadastrar nova joia.")
         }
     }
 
@@ -147,7 +147,8 @@ export default function CadastroListagem() {
                     <div className="box_cadastro">
                         <div className="coluna_cadastro1">
                             <label htmlFor="Nome">Nome</label>
-                            <input type="text"
+                            <input className="input"
+                                type="text"
                                 name=""
                                 id="Nome"
                                 placeholder="Qual o nome dessa joia?"
@@ -159,7 +160,7 @@ export default function CadastroListagem() {
                                     <label htmlFor="preço">Preço</label>
                                     <NumericFormat
                                         id="preço"
-                                        placeholder="insira o preço (R$)"
+                                        placeholder="insira o preço"
                                         value={preco ?? ""}
                                         thousandSeparator="."
                                         decimalSeparator=","
@@ -173,6 +174,7 @@ export default function CadastroListagem() {
 
                                     />
                                 </div>
+                                
                                 <div className="img_input">
                                     <label htmlFor="img">
                                         <span>Imagem</span>
@@ -185,6 +187,7 @@ export default function CadastroListagem() {
                                         </div>
                                     </label>
                                     <input
+                                    className="input"
                                         type="file"
                                         id="img"
                                         alt="imagem_da_joia"
@@ -196,9 +199,10 @@ export default function CadastroListagem() {
 
                             </div>
                             <label htmlFor="Parcela">Parcela</label>
-                            <input type="text"
+                            <input className="input input_parcelamento"
+                                type="text"
                                 id="Parcela"
-                                placeholder="Insira a quantidade de parcelas"
+                                placeholder="Insira a quantidade da parcelas"
                                 value={parcelamento}
                                 onChange={j => setParcelamento(j.target.value)}
                             />
@@ -215,8 +219,8 @@ export default function CadastroListagem() {
                             />
                         </div>
                     </div>
-                  <button className="botaoSubmit" type="submit">Cadastrar</button>
-                  
+                    <button className="botaoSubmit" type="submit">Cadastrar</button>
+
                 </form>
 
                 <h2>Lista</h2>

@@ -12,8 +12,7 @@
         "Idyllia",
         "Anel",
         "Flor",
-        "Azul",
-        "relogios"
+        "Azul"
       ],
       "descricao": "Anel Idyllia, Combinação de lapidações, Flor, Azul, Revestido em dourado.",
       "imagens": [
@@ -109,7 +108,7 @@
   {
     "nome": "Relogio azul",
     "categorias": [
-      "Relogio",
+      "relogio",
       "Azul",
       "Aço",
       "Esportivo",
@@ -126,7 +125,7 @@
   {
     "nome": "Relogio dourado",
     "categorias": [
-      "Relogio",
+      "relogios",
       "Dourado",
       "Clássico",
       "Feminino",
@@ -143,7 +142,7 @@
   {
     "nome": "relogio prata azul",
     "categorias": [
-      "Relogio",
+      "relogios",
       "Prata",
       "Azul",
       "Cronógrafo",
@@ -160,7 +159,7 @@
   {
     "nome": "Relogio prata cristal",
     "categorias": [
-      "Relogio",
+      "relogios",
       "Prata",
       "Cristal",
       "Feminino",
